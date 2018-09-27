@@ -5,6 +5,7 @@ import 'package:flutter_test_auth_2_app/auth.dart';
 import 'package:flutter_test_auth_2_app/data/database_helper.dart';
 import 'package:flutter_test_auth_2_app/models/user.dart';
 import 'package:flutter_test_auth_2_app/screens/login/login_screen_presenter.dart';
+import 'package:flutter_test_auth_2_app/proauth.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -37,7 +38,10 @@ class LoginScreenState extends State<LoginScreen>
     if (form.validate()) {
       setState(() => _isLoading = true);
       form.save();
-      _presenter.doLogin(_username, _password);
+      //// orginal //_presenter.doLogin(_username, _password);
+      PrAuthTest prAuth = new PrAuthTest();
+      prAuth.login(_username, _password);
+
     }
   }
 
